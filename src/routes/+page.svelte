@@ -38,6 +38,11 @@
     <div class="mt-4">
         手抜きなので 1920 x 1080 フルスクリーンのみ対応<br />
         Alt + PrintScreenでゲーム画面を撮って上のやつに貼り付ける<br />
-        canvasを右クリックしてコピーできる
+        canvasを右クリックしてコピーできる<br />
+        <a
+            class="text-sky-500 transition-colors hover:text-sky-400"
+            href="https://youtu.be/Lal0g0hv_ZE"
+            target="_blank">Usage</a
+        >
     </div>
 </div>
