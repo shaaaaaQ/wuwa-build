@@ -3,7 +3,7 @@
 </script>
 
 <div
-    class="p-3 border-solid border-2 border-gray-600 focus:outline-none text-center"
+    class="p-3 border-solid border-2 border-gray-600 focus:bg-gray-700 hover:bg-gray-700 transition-colors focus:outline-none text-center"
     class:border-sky-400={file}
     on:paste|preventDefault={(e) => {
         e.clipboardData &&
