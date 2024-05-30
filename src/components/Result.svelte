@@ -40,33 +40,12 @@
             );
         }
 
-        const nameSx = 174;
-        const nameSy = 114;
-        const nameSWidth = 420;
-        const nameSHeight = 172; // 286 - sy
-
         const statusSx = 174;
-        const statusSy = 284;
+        const statusSy = 236;
         const statusSWidth = 420;
-        const statusSHeight = 234; // 518 - sy
-
-        const statusDWidth = 445;
-        const statusDHeight = 248;
+        const statusSHeight = 284;
 
         if (statusFile) {
-            draw(
-                ctx,
-                statusFile,
-                nameSx,
-                nameSy,
-                nameSWidth,
-                nameSHeight,
-                0,
-                0,
-                nameSWidth,
-                nameSHeight,
-            );
-
             draw(
                 ctx,
                 statusFile,
@@ -74,21 +53,20 @@
                 statusSy,
                 statusSWidth,
                 statusSHeight,
-                chainSWidth,
                 0,
-                statusDWidth,
-                statusDHeight,
+                0,
+                statusSWidth,
+                statusSHeight,
             );
         }
 
         const weaponSx = 176;
         const weaponSy = 114;
         const weaponSWidth = 420;
-        const weaponSHeight = 92; // 340 - statusSHeight
+        const weaponSHeight = 340;
 
         const weaponDWidth = 445;
-        const weaponDHeight = 360 - 248;
-        const weaponDy = 360 - weaponDHeight;
+        const weaponDHeight = 360;
 
         if (weaponFile) {
             draw(
@@ -99,7 +77,7 @@
                 weaponSWidth,
                 weaponSHeight,
                 chainSWidth,
-                weaponDy,
+                0,
                 weaponDWidth,
                 weaponDHeight,
             );
