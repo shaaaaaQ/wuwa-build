@@ -1,0 +1,208 @@
+<script lang="ts">
+    import { draw } from "$lib";
+
+    let canvas: HTMLCanvasElement;
+    export let chainFile: File | null;
+    export let weaponFile: File | null;
+    export let statusFile: File | null;
+    export let echo0File: File | null;
+    export let echo1File: File | null;
+    export let echo2File: File | null;
+    export let echo3File: File | null;
+    export let echo4File: File | null;
+
+    $: (() => {
+        if (!canvas) return;
+        console.log("render");
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
+
+        ctx.fillStyle = "green";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // TODO ここより下をどうにかする
+
+        const chainSx = 500;
+        const chainSWidth = 1100; // 1920 - 右320 - 左sx
+
+        if (chainFile) {
+            draw(
+                ctx,
+                chainFile,
+                chainSx,
+                0,
+                chainSWidth,
+                1080,
+                0,
+                0,
+                chainSWidth,
+                1080,
+            );
+        }
+
+        const nameSx = 174;
+        const nameSy = 114;
+        const nameSWidth = 420;
+        const nameSHeight = 172; // 286 - sy
+
+        const statusSx = 174;
+        const statusSy = 284;
+        const statusSWidth = 420;
+        const statusSHeight = 234; // 518 - sy
+
+        const statusDWidth = 445;
+        const statusDHeight = 248;
+
+        if (statusFile) {
+            draw(
+                ctx,
+                statusFile,
+                nameSx,
+                nameSy,
+                nameSWidth,
+                nameSHeight,
+                0,
+                0,
+                nameSWidth,
+                nameSHeight,
+            );
+
+            draw(
+                ctx,
+                statusFile,
+                statusSx,
+                statusSy,
+                statusSWidth,
+                statusSHeight,
+                chainSWidth,
+                0,
+                statusDWidth,
+                statusDHeight,
+            );
+        }
+
+        const weaponSx = 176;
+        const weaponSy = 114;
+        const weaponSWidth = 420;
+        const weaponSHeight = 92; // 340 - statusSHeight
+
+        const weaponDWidth = 445;
+        const weaponDHeight = 360 - 248;
+        const weaponDy = 360 - weaponDHeight;
+
+        if (weaponFile) {
+            draw(
+                ctx,
+                weaponFile,
+                weaponSx,
+                weaponSy,
+                weaponSWidth,
+                weaponSHeight,
+                chainSWidth,
+                weaponDy,
+                weaponDWidth,
+                weaponDHeight,
+            );
+        }
+
+        const echoSx = 1414;
+        const echoSy = 140;
+        const echoSWidth = 420; // 1834 - sx
+        const echoSHeight = 340; // 480 - sy
+
+        const echoDWidth = 445; // dh / sh * sw
+        const echoDHeight = 360; // 1080 / 3
+
+        if (echo0File) {
+            draw(
+                ctx,
+                echo0File,
+                echoSx,
+                echoSy,
+                echoSWidth,
+                echoSHeight,
+                chainSWidth + echoDWidth,
+                0,
+                echoDWidth,
+                echoDHeight,
+            );
+        }
+        if (echo1File) {
+            draw(
+                ctx,
+                echo1File,
+                echoSx,
+                echoSy,
+                echoSWidth,
+                echoSHeight,
+                chainSWidth,
+                echoDHeight,
+                echoDWidth,
+                echoDHeight,
+            );
+        }
+        if (echo2File) {
+            draw(
+                ctx,
+                echo2File,
+                echoSx,
+                echoSy,
+                echoSWidth,
+                echoSHeight,
+                chainSWidth + echoDWidth,
+                echoDHeight,
+                echoDWidth,
+                echoDHeight,
+            );
+        }
+        if (echo3File) {
+            draw(
+                ctx,
+                echo3File,
+                echoSx,
+                echoSy,
+                echoSWidth,
+                echoSHeight,
+                chainSWidth,
+                echoDHeight * 2,
+                echoDWidth,
+                echoDHeight,
+            );
+        }
+        if (echo4File) {
+            draw(
+                ctx,
+                echo4File,
+                echoSx,
+                echoSy,
+                echoSWidth,
+                echoSHeight,
+                chainSWidth + echoDWidth,
+                echoDHeight * 2,
+                echoDWidth,
+                echoDHeight,
+            );
+        }
+    })();
+</script>
+
+<canvas
+    width={1100 + 445 * 2}
+    height={1080}
+    class="max-w-full"
+    bind:this={canvas}
+></canvas>
+
+<div class="flex justify-end gap-4 mt-4">
+    <button
+        class="p-2 bg-gray-600 rounded-md transition-colors hover:bg-gray-500"
+        on:click={() => {
+            const a = document.createElement("a");
+            a.href = canvas.toDataURL("image/png");
+            a.download = "wuwa-build.png";
+            a.click();
+        }}
+    >
+        ダウンロード
+    </button>
+</div>
