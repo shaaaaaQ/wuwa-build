@@ -5,6 +5,7 @@
     let statusFile: File | null;
     let chainFile: File | null;
     let weaponFile: File | null;
+    let skillFile: File | null;
     let echo0File: File | null;
     let echo1File: File | null;
     let echo2File: File | null;
@@ -16,6 +17,7 @@
     <div class="flex [&>div]:flex-1">
         <PasteArea bind:file={statusFile}>ステータス</PasteArea>
         <PasteArea bind:file={weaponFile}>武器</PasteArea>
+        <PasteArea bind:file={skillFile}>スキル</PasteArea>
         <PasteArea bind:file={chainFile}>共鳴チェーン</PasteArea>
     </div>
     <div class="flex [&>div]:flex-1 mb-4">
@@ -29,6 +31,7 @@
         {statusFile}
         {chainFile}
         {weaponFile}
+        {skillFile}
         {echo0File}
         {echo1File}
         {echo2File}
@@ -38,6 +41,8 @@
     <div class="mt-4">
         手抜きなので 1920 x 1080 フルスクリーンのみ対応<br />
         Alt + PrintScreenでゲーム画面を撮って上のやつに貼り付ける<br />
+        ステータスとスキルは追加しなくてもいい<br />
+        スキルを追加すると画像が右に伸びる<br />
         canvasを右クリックしてコピーできる<br />
         <a
             class="text-sky-500 transition-colors hover:text-sky-400"

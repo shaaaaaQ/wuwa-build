@@ -5,6 +5,7 @@
     export let chainFile: File | null;
     export let weaponFile: File | null;
     export let statusFile: File | null;
+    export let skillFile: File | null;
     export let echo0File: File | null;
     export let echo1File: File | null;
     export let echo2File: File | null;
@@ -17,10 +18,11 @@
         const ctx = canvas.getContext("2d");
         if (!ctx) return;
 
-        ctx.fillStyle = "green";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        // ctx.fillStyle = "green";
+        // ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         // TODO ここより下をどうにかする
+        // TODO スキルの上か下にダメバフとか表示したい
 
         const chainSx = 500;
         const chainSWidth = 1100; // 1920 - 右320 - 左sx
@@ -161,13 +163,88 @@
                 echoDHeight,
             );
         }
+
+        // 1: 382, 336
+        // 2: 614, 196
+        // 3: 886, 130
+        // 4: 1160, 196
+        // 5: 1390, 336
+
+        const skillSWidth = 148;
+        const skillSHeight = 698;
+
+        const skillDWidth = 229;
+        const skillDHeight = 1080;
+
+        if (skillFile) {
+            draw(
+                ctx,
+                skillFile,
+                382,
+                330,
+                skillSWidth,
+                skillSHeight,
+                1100 + 445 * 2 + 229 * 0,
+                0,
+                skillDWidth,
+                skillDHeight,
+            );
+            draw(
+                ctx,
+                skillFile,
+                614,
+                196,
+                skillSWidth,
+                skillSHeight,
+                1100 + 445 * 2 + 229 * 1,
+                0,
+                skillDWidth,
+                skillDHeight,
+            );
+            draw(
+                ctx,
+                skillFile,
+                886,
+                130,
+                skillSWidth,
+                skillSHeight,
+                1100 + 445 * 2 + 229 * 2,
+                0,
+                skillDWidth,
+                skillDHeight,
+            );
+            draw(
+                ctx,
+                skillFile,
+                1160,
+                196,
+                skillSWidth,
+                skillSHeight,
+                1100 + 445 * 2 + 229 * 3,
+                0,
+                skillDWidth,
+                skillDHeight,
+            );
+            draw(
+                ctx,
+                skillFile,
+                1390,
+                336,
+                skillSWidth,
+                skillSHeight,
+                1100 + 445 * 2 + 229 * 4,
+                0,
+                skillDWidth,
+                skillDHeight,
+            );
+        }
     })();
 </script>
 
 <canvas
-    width={1100 + 445 * 2}
+    width={1100 + 445 * 2 + (skillFile ? 229 * 5 : 0)}
     height={1080}
-    class="max-w-full"
+    class="max-w-full bg-green-600"
     bind:this={canvas}
 ></canvas>
 
