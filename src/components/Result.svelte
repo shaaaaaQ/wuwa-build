@@ -78,7 +78,7 @@
                 weaponSy,
                 weaponSWidth,
                 weaponSHeight,
-                skillFile && !showChild ? chainSWidth + 129 : chainSWidth,
+                chainSWidth,
                 0,
                 weaponDWidth,
                 weaponDHeight,
@@ -92,8 +92,7 @@
 
         const echoDWidth = 445; // dh / sh * sw
         const echoDHeight = 360; // 1080 / 3
-        const echoDx =
-            skillFile && !showChild ? chainSWidth + 129 : chainSWidth;
+        const echoDx = chainSWidth;
 
         if (echo0File) {
             await draw(
@@ -259,7 +258,7 @@
                     336 + 440,
                     skillSWidth,
                     skillSHeight,
-                    1100,
+                    1100 + 445 * 2,
                     skillDHeight * 0,
                     skillDWidth,
                     skillDHeight,
@@ -271,7 +270,7 @@
                     196 + 440,
                     skillSWidth,
                     skillSHeight,
-                    1100,
+                    1100 + 445 * 2,
                     skillDHeight * 1,
                     skillDWidth,
                     skillDHeight,
@@ -283,7 +282,7 @@
                     130 + 440,
                     skillSWidth,
                     skillSHeight,
-                    1100,
+                    1100 + 445 * 2,
                     skillDHeight * 2,
                     skillDWidth,
                     skillDHeight,
@@ -295,7 +294,7 @@
                     196 + 440,
                     skillSWidth,
                     skillSHeight,
-                    1100,
+                    1100 + 445 * 2,
                     skillDHeight * 3,
                     skillDWidth,
                     skillDHeight,
@@ -307,7 +306,7 @@
                     336 + 440,
                     skillSWidth,
                     skillSHeight,
-                    1100,
+                    1100 + 445 * 2,
                     skillDHeight * 4,
                     skillDWidth,
                     skillDHeight,
