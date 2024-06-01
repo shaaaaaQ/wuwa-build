@@ -13,7 +13,7 @@
     export let echo3File: File | null;
     export let echo4File: File | null;
 
-    $: (() => {
+    $: (async () => {
         if (!canvas) return;
         console.log("render");
         const ctx = canvas.getContext("2d");
@@ -28,14 +28,14 @@
         const chainSWidth = 1100; // 1920 - 右320 - 左sx
 
         if (chainFile) {
-            draw(
+            await draw(
                 ctx,
                 chainFile,
                 chainSx,
                 0,
                 chainSWidth,
                 1080,
-                0,
+                skillFile && !showChild ? 129 : 0,
                 0,
                 chainSWidth,
                 1080,
@@ -48,14 +48,14 @@
         const statusSHeight = 284;
 
         if (statusFile) {
-            draw(
+            await draw(
                 ctx,
                 statusFile,
                 statusSx,
                 statusSy,
                 statusSWidth,
                 statusSHeight,
-                0,
+                skillFile && !showChild ? 129 : 0,
                 0,
                 statusSWidth,
                 statusSHeight,
@@ -71,7 +71,7 @@
         const weaponDHeight = 360;
 
         if (weaponFile) {
-            draw(
+            await draw(
                 ctx,
                 weaponFile,
                 weaponSx,
@@ -96,7 +96,7 @@
             skillFile && !showChild ? chainSWidth + 129 : chainSWidth;
 
         if (echo0File) {
-            draw(
+            await draw(
                 ctx,
                 echo0File,
                 echoSx,
@@ -110,7 +110,7 @@
             );
         }
         if (echo1File) {
-            draw(
+            await draw(
                 ctx,
                 echo1File,
                 echoSx,
@@ -124,7 +124,7 @@
             );
         }
         if (echo2File) {
-            draw(
+            await draw(
                 ctx,
                 echo2File,
                 echoSx,
@@ -138,7 +138,7 @@
             );
         }
         if (echo3File) {
-            draw(
+            await draw(
                 ctx,
                 echo3File,
                 echoSx,
@@ -152,7 +152,7 @@
             );
         }
         if (echo4File) {
-            draw(
+            await draw(
                 ctx,
                 echo4File,
                 echoSx,
@@ -179,7 +179,7 @@
 
                 const skillDWidth = 229;
                 const skillDHeight = 1080;
-                draw(
+                await draw(
                     ctx,
                     skillFile,
                     382,
@@ -191,7 +191,7 @@
                     skillDWidth,
                     skillDHeight,
                 );
-                draw(
+                await draw(
                     ctx,
                     skillFile,
                     614,
@@ -203,7 +203,7 @@
                     skillDWidth,
                     skillDHeight,
                 );
-                draw(
+                await draw(
                     ctx,
                     skillFile,
                     886,
@@ -215,7 +215,7 @@
                     skillDWidth,
                     skillDHeight,
                 );
-                draw(
+                await draw(
                     ctx,
                     skillFile,
                     1160,
@@ -227,7 +227,7 @@
                     skillDWidth,
                     skillDHeight,
                 );
-                draw(
+                await draw(
                     ctx,
                     skillFile,
                     1390,
@@ -252,62 +252,62 @@
                 const skillDWidth = 129;
                 const skillDHeight = 216;
 
-                draw(
+                await draw(
                     ctx,
                     skillFile,
                     382,
                     336 + 440,
                     skillSWidth,
                     skillSHeight,
-                    1100,
+                    0,
                     skillDHeight * 0,
                     skillDWidth,
                     skillDHeight,
                 );
-                draw(
+                await draw(
                     ctx,
                     skillFile,
                     614,
                     196 + 440,
                     skillSWidth,
                     skillSHeight,
-                    1100,
+                    0,
                     skillDHeight * 1,
                     skillDWidth,
                     skillDHeight,
                 );
-                draw(
+                await draw(
                     ctx,
                     skillFile,
                     886,
                     130 + 440,
                     skillSWidth,
                     skillSHeight,
-                    1100,
+                    0,
                     skillDHeight * 2,
                     skillDWidth,
                     skillDHeight,
                 );
-                draw(
+                await draw(
                     ctx,
                     skillFile,
                     1160,
                     196 + 440,
                     skillSWidth,
                     skillSHeight,
-                    1100,
+                    0,
                     skillDHeight * 3,
                     skillDWidth,
                     skillDHeight,
                 );
-                draw(
+                await draw(
                     ctx,
                     skillFile,
                     1390,
                     336 + 440,
                     skillSWidth,
                     skillSHeight,
-                    1100,
+                    0,
                     skillDHeight * 4,
                     skillDWidth,
                     skillDHeight,
