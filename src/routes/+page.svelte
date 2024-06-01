@@ -44,10 +44,10 @@
         ステータスとスキルは追加しなくてもいい<br />
         スキルを追加すると画像が右に伸びる<br />
         canvasを右クリックしてコピーできる<br />
-        <a
+        <!-- <a
             class="text-sky-500 transition-colors hover:text-sky-400"
             href="https://youtu.be/Lal0g0hv_ZE"
             target="_blank">Usage</a
-        >
+        > -->
     </div>
 </div>
