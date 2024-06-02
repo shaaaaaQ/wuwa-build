@@ -2,7 +2,6 @@
     import { draw } from "$lib";
 
     let canvas: HTMLCanvasElement;
-    let showChild = false;
     export let chainFile: File | null;
     export let weaponFile: File | null;
     export let statusFile: File | null;
