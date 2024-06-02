@@ -19,8 +19,8 @@
         const ctx = canvas.getContext("2d");
         if (!ctx) return;
 
-        // ctx.fillStyle = "green";
-        // ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#162134";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         // TODO ここより下をどうにかする
 
@@ -166,168 +166,90 @@
         }
 
         if (skillFile) {
-            if (showChild) {
-                // 1: 382, 336
-                // 2: 614, 196
-                // 3: 886, 130
-                // 4: 1160, 196
-                // 5: 1390, 336
+            // 1: 382, 336 + 440
+            // 2: 614, 196 + 440
+            // 3: 886, 130 + 440
+            // 4: 1160, 196 + 440
+            // 5: 1390, 336 + 440
 
-                const skillSWidth = 148;
-                const skillSHeight = 698;
+            const skillSWidth = 148;
+            const skillSHeight = 248;
 
-                const skillDWidth = 229;
-                const skillDHeight = 1080;
-                await draw(
-                    ctx,
-                    skillFile,
-                    382,
-                    330,
-                    skillSWidth,
-                    skillSHeight,
-                    1100 + 445 * 2 + 229 * 0,
-                    0,
-                    skillDWidth,
-                    skillDHeight,
-                );
-                await draw(
-                    ctx,
-                    skillFile,
-                    614,
-                    196,
-                    skillSWidth,
-                    skillSHeight,
-                    1100 + 445 * 2 + 229 * 1,
-                    0,
-                    skillDWidth,
-                    skillDHeight,
-                );
-                await draw(
-                    ctx,
-                    skillFile,
-                    886,
-                    130,
-                    skillSWidth,
-                    skillSHeight,
-                    1100 + 445 * 2 + 229 * 2,
-                    0,
-                    skillDWidth,
-                    skillDHeight,
-                );
-                await draw(
-                    ctx,
-                    skillFile,
-                    1160,
-                    196,
-                    skillSWidth,
-                    skillSHeight,
-                    1100 + 445 * 2 + 229 * 3,
-                    0,
-                    skillDWidth,
-                    skillDHeight,
-                );
-                await draw(
-                    ctx,
-                    skillFile,
-                    1390,
-                    336,
-                    skillSWidth,
-                    skillSHeight,
-                    1100 + 445 * 2 + 229 * 4,
-                    0,
-                    skillDWidth,
-                    skillDHeight,
-                );
-            } else {
-                // 1: 382, 336 + 440
-                // 2: 614, 196 + 440
-                // 3: 886, 130 + 440
-                // 4: 1160, 196 + 440
-                // 5: 1390, 336 + 440
+            const skillDWidth = 129;
+            const skillDHeight = 216;
 
-                const skillSWidth = 148;
-                const skillSHeight = 248;
-
-                const skillDWidth = 129;
-                const skillDHeight = 216;
-
-                await draw(
-                    ctx,
-                    skillFile,
-                    382,
-                    336 + 440,
-                    skillSWidth,
-                    skillSHeight,
-                    1100 + 445 * 2,
-                    skillDHeight * 0,
-                    skillDWidth,
-                    skillDHeight,
-                );
-                await draw(
-                    ctx,
-                    skillFile,
-                    614,
-                    196 + 440,
-                    skillSWidth,
-                    skillSHeight,
-                    1100 + 445 * 2,
-                    skillDHeight * 1,
-                    skillDWidth,
-                    skillDHeight,
-                );
-                await draw(
-                    ctx,
-                    skillFile,
-                    886,
-                    130 + 440,
-                    skillSWidth,
-                    skillSHeight,
-                    1100 + 445 * 2,
-                    skillDHeight * 2,
-                    skillDWidth,
-                    skillDHeight,
-                );
-                await draw(
-                    ctx,
-                    skillFile,
-                    1160,
-                    196 + 440,
-                    skillSWidth,
-                    skillSHeight,
-                    1100 + 445 * 2,
-                    skillDHeight * 3,
-                    skillDWidth,
-                    skillDHeight,
-                );
-                await draw(
-                    ctx,
-                    skillFile,
-                    1390,
-                    336 + 440,
-                    skillSWidth,
-                    skillSHeight,
-                    1100 + 445 * 2,
-                    skillDHeight * 4,
-                    skillDWidth,
-                    skillDHeight,
-                );
-            }
+            await draw(
+                ctx,
+                skillFile,
+                382,
+                336 + 440,
+                skillSWidth,
+                skillSHeight,
+                1100 + 445 * 2,
+                skillDHeight * 0,
+                skillDWidth,
+                skillDHeight,
+            );
+            await draw(
+                ctx,
+                skillFile,
+                614,
+                196 + 440,
+                skillSWidth,
+                skillSHeight,
+                1100 + 445 * 2,
+                skillDHeight * 1,
+                skillDWidth,
+                skillDHeight,
+            );
+            await draw(
+                ctx,
+                skillFile,
+                886,
+                130 + 440,
+                skillSWidth,
+                skillSHeight,
+                1100 + 445 * 2,
+                skillDHeight * 2,
+                skillDWidth,
+                skillDHeight,
+            );
+            await draw(
+                ctx,
+                skillFile,
+                1160,
+                196 + 440,
+                skillSWidth,
+                skillSHeight,
+                1100 + 445 * 2,
+                skillDHeight * 3,
+                skillDWidth,
+                skillDHeight,
+            );
+            await draw(
+                ctx,
+                skillFile,
+                1390,
+                336 + 440,
+                skillSWidth,
+                skillSHeight,
+                1100 + 445 * 2,
+                skillDHeight * 4,
+                skillDWidth,
+                skillDHeight,
+            );
         }
     })();
 </script>
 
 <canvas
-    width={1100 + 445 * 2 + (skillFile ? (showChild ? 229 * 5 : 129) : 0)}
+    width={1100 + 445 * 2 + 129}
     height={1080}
-    class="max-w-full bg-green-600"
+    class="max-w-full"
     bind:this={canvas}
 ></canvas>
 
-<div class="flex justify-between gap-4 mt-4">
-    <label>
-        <input type="checkbox" bind:checked={showChild} />
-        スキル全表示
-    </label>
+<div class="flex justify-end gap-4 mt-4">
     <button
         class="p-2 bg-gray-600 rounded-md transition-colors hover:bg-gray-500"
         on:click={() => {
